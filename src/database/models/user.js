@@ -49,6 +49,15 @@ export default (sequelize, DataTypes) => {
         },
       }
     },
+    slug: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
+    gender: {
+      type: DataTypes.ENUM,
+      values: ['male', 'female']
+    },
     isVerified: {
       allowNull: false,
       type: DataTypes.BOOLEAN,
@@ -67,9 +76,13 @@ export default (sequelize, DataTypes) => {
       allowNull: false,
     }
   }, {});
-  // eslint-disable-next-line no-unused-vars
+
   User.associate = (models) => {
     // associations can be defined here
+    User.hasOne(models.Profile, {
+      foreignKey: 'userId',
+      sourceKey: 'id'
+    });
   };
   return User;
 };
