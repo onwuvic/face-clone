@@ -31,6 +31,15 @@ module.exports = {
         min: 5
       }
     },
+    slug: {
+      type: Sequelize.STRING,
+      unique: true,
+      allowNull: false
+    },
+    gender: {
+      type: Sequelize.ENUM,
+      values: ['male', 'female']
+    },
     isVerified: {
       allowNull: false,
       type: Sequelize.BOOLEAN,

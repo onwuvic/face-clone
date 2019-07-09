@@ -14,8 +14,10 @@ class UserController {
       const user = await UserService.createNewUser(req.body);
       // generate token
       const token = await Token.generateToken(user);
+
+      // TODO:: remove the user. only return token
       // return the newly created user infomation
-      return Response.ok(res, token, 201);
+      return Response.ok(res, { user, token }, 201);
     } catch (error) {
       return Response.error(
         res,
