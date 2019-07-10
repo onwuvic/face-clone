@@ -83,6 +83,10 @@ export default (sequelize, DataTypes) => {
       foreignKey: 'userId',
       sourceKey: 'id'
     });
+    User.hasMany(models.Post, {
+      foreignKey: 'userId',
+      sourceKey: 'id'
+    });
   };
   return User;
 };
