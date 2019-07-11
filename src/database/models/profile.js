@@ -37,7 +37,7 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.STRING
     },
     collegePeriod: {
-      type: DataTypes.STRING
+      type: DataTypes.DATEONLY
     },
     degree: {
       type: DataTypes.STRING
@@ -46,13 +46,13 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.STRING
     },
     highSchoolPeriod: {
-      type: DataTypes.STRING
+      type: DataTypes.DATEONLY
     },
     primarySchool: {
       type: DataTypes.STRING
     },
     primarySchoolPeriod: {
-      type: DataTypes.STRING
+      type: DataTypes.DATEONLY
     },
   }, {});
 

@@ -63,18 +63,10 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
-    birthDay: {
-      type: DataTypes.INTEGER,
+    dateOfBirth: {
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
-    birthMonth: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    birthYear: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    }
   }, {});
 
   User.associate = (models) => {

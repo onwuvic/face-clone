@@ -7,6 +7,11 @@ class Token {
     });
     return token;
   }
+
+  static async verifyToken(token) {
+    const decodedData = await jwt.verify(token, process.env.JWTKEY);
+    return decodedData;
+  }
 }
 
 export default Token;

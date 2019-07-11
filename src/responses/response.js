@@ -14,6 +14,22 @@ class Response {
       errorDetails
     });
   }
+
+  static unauthorized(res, message) {
+    return res.status(401).json({
+      status: 'fail',
+      errorType: 'Unauthorized',
+      message
+    });
+  }
+
+  static forbidden(res, message) {
+    return res.status(403).json({
+      status: 'fail',
+      errorType: 'Forbidden',
+      message
+    });
+  }
 }
 
 export default Response;

@@ -4,8 +4,10 @@ import Response from '../../responses/response';
 class PostController {
   static async create(req, res) {
     try {
+      // get the authenticated user Id
+      const authUserId = req.user.id;
       // call post service to create post
-      const post = await PostService.createNewPost(req.body, 1);
+      const post = await PostService.createNewPost(req.body, authUserId);
       // if successful return the post
       return Response.ok(res, post, 201);
     } catch (error) {
