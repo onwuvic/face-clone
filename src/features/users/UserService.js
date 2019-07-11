@@ -1,4 +1,3 @@
-import bcrypt from 'bcrypt';
 import models from '../../database/models';
 import Utils from '../../helpers/utils';
 import ProfileService from '../profiles/ProfileService';
@@ -13,18 +12,18 @@ class UserService {
   static async createNewUser(userInfo) {
     // destruction all user data from userInfo
     const {
-      firstName, lastName, email, password, gender, birthDay, birthMonth, birthYear
+      firstName, lastName, email, password, gender
     } = userInfo;
 
     // get user slug (combination of first and last name)
     const slug = await UserService.getUserSlug(firstName, lastName);
 
     // encrypt the user password
-    const hash = await bcrypt.hash(password, 10);
+    const hash = await Utils.encryptPassword(password);
 
     // create the user if successful or failed when not successful
     const user = await User.create({
-      firstName, lastName, email, password: hash, slug, gender, birthDay, birthMonth, birthYear
+      firstName, lastName, email, password: hash, slug, gender
     });
 
     // create user profile
@@ -50,6 +49,13 @@ class UserService {
     }
     const timestamp = Date.now();
     return `${strSlug}-${timestamp}`;
+  }
+
+  static async getUserByEmail(email) {
+    const user = User.findOne({
+      where: { email }
+    });
+    return user;
   }
 }
 

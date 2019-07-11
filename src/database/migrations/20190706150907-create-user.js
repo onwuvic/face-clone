@@ -45,16 +45,8 @@ module.exports = {
       type: Sequelize.BOOLEAN,
       defaultValue: false
     },
-    birthDay: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
-    },
-    birthMonth: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
-    },
-    birthYear: {
-      type: Sequelize.INTEGER,
+    dateOfBirth: {
+      type: Sequelize.DATEONLY,
       allowNull: false,
     },
     createdAt: {

@@ -38,7 +38,7 @@ module.exports = {
       type: Sequelize.STRING
     },
     collegePeriod: {
-      type: Sequelize.STRING
+      type: Sequelize.DATEONLY
     },
     degree: {
       type: Sequelize.STRING
@@ -47,13 +47,13 @@ module.exports = {
       type: Sequelize.STRING
     },
     highSchoolPeriod: {
-      type: Sequelize.STRING
+      type: Sequelize.DATEONLY
     },
     primarySchool: {
       type: Sequelize.STRING
     },
     primarySchoolPeriod: {
-      type: Sequelize.STRING
+      type: Sequelize.DATEONLY
     },
     userId: {
       allowNull: false,
